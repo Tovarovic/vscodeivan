@@ -1,24 +1,116 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link href="styles.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <title>Registro de mascotas y dueños</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="text-center mt-3">Registro de mascotas y dueños</h2>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container mt-4">
-        <h1 class="text-center mt-4">Registro de mascotas y dueños</h1>
-
-        <div class="row">
-            <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card-shadow">
+            <div class="card-header text-center">
+              <h5>Registrar nueva mascota</h5>
             </div>
+            <div class="card-body">
+              <form action="" class="card-body" id="formularioMascota">
+                <div class="mb-3">
+                  <label for="nombreMascota" class="form-label"
+                    >Nombre de la mascota</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nombreMascota"
+                    required
+                  />
+                </div>
 
-            <div class="col-md-8">
+                <div class="mb-3">
+                  <label for="tipoMascota" class="form-label"
+                    >Tipo de mascota</label
+                  >
+                  <select class="form-select" id="tipoMascota" required>
+                    <option value="perro">Perro</option>
+                    <option value="gato">Gato</option>
+                    <option value="ave">Ave</option>
+                    <option value="roedor">Roedor</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <label for="edadMascota" class="form-label"
+                    >Edad (En años humanos)</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="edadMascota"
+                    min="0"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="nombreDuenho" class="form-label"
+                    >Nombre del dueño</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nombreDuenho"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="" class="form-label">Telefono del dueño</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="telefonoDuenho"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="tieneVacunas" class="form-label"
+                    >Tiene vacunas?</label
+                  >
+                  <select class="form-select" id="tieneVacunas" required>
+                    <option value="true">Si</option>
+                    <option value="false">No</option>
+                  </select>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-success w-100"
+                  id="botonRegistrarMascota"
+                >
+                  <span>Registrar mascota</span>
+                </button>
+              </form>
             </div>
+          </div>
         </div>
+        <div class="col-md-8"></div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
