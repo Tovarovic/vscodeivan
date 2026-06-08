@@ -22,7 +22,7 @@
 
       <div class="row">
         <div class="col-md-4">
-          <div class="card-shadow">
+          <div class="card shadow">
             <div class="card-header text-center">
               <h5>Registrar nueva mascota</h5>
             </div>
@@ -79,7 +79,9 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="" class="form-label">Telefono del dueño</label>
+                  <label for="telefonoDuenho" class="form-label"
+                    >Telefono del dueño</label
+                  >
                   <input
                     type="tel"
                     class="form-control"
@@ -109,8 +111,26 @@
             </div>
           </div>
         </div>
-        <div class="col-md-8"></div>
+        <div class="col-md-8">
+          <h4 class="text-center mb-3">Mascotas registradas</h4>
+          <table class="table table-striped" id="tablaMascotas">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Edad</th>
+                <th>Dueño</th>
+                <th>Teléfono</th>
+                <th>Vacunas</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
       </div>
     </div>
+
+    <script src="app.js"></script>
   </body>
 </html>
