@@ -4,34 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Bootstrap 4 -->
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
-    <link href="styles.css" rel="stylesheet" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-    <title>Registro de mascotas y dueños</title>
+    <title>Registro de Mascotas y Dueños</title>
   </head>
   <body>
-    <div class="container">
-      <h2 class="text-center mt-3">Registro de mascotas y dueños</h2>
+    <div class="container mt-4">
+      <h2 class="text-center mb-4">Registro de Mascotas y Dueños</h2>
 
       <div class="row">
+        <!-- FORMULARIO -->
         <div class="col-md-4">
-          <div class="card shadow">
-            <div class="card-header text-center">
-              <h5>Registrar nueva mascota</h5>
+          <div class="card">
+            <div class="card-header bg-primary text-white text-center">
+              Registrar Nueva Mascota
             </div>
+
             <div class="card-body">
-              <form action="" class="card-body" id="formularioMascota">
-                <div class="mb-3">
-                  <label for="nombreMascota" class="form-label"
-                    >Nombre de la mascota</label
-                  >
+              <form id="formularioMascota">
+                <div class="form-group">
+                  <label>Nombre de la Mascota</label>
                   <input
                     type="text"
                     class="form-control"
@@ -40,11 +36,9 @@
                   />
                 </div>
 
-                <div class="mb-3">
-                  <label for="tipoMascota" class="form-label"
-                    >Tipo de mascota</label
-                  >
-                  <select class="form-select" id="tipoMascota" required>
+                <div class="form-group">
+                  <label>Tipo de Mascota</label>
+                  <select class="form-control" id="tipoMascota">
                     <option value="perro">Perro</option>
                     <option value="gato">Gato</option>
                     <option value="ave">Ave</option>
@@ -53,10 +47,8 @@
                   </select>
                 </div>
 
-                <div class="mb-3">
-                  <label for="edadMascota" class="form-label"
-                    >Edad (En años humanos)</label
-                  >
+                <div class="form-group">
+                  <label>Edad (en años)</label>
                   <input
                     type="number"
                     class="form-control"
@@ -66,10 +58,8 @@
                   />
                 </div>
 
-                <div class="mb-3">
-                  <label for="nombreDuenho" class="form-label"
-                    >Nombre del dueño</label
-                  >
+                <div class="form-group">
+                  <label>Nombre del Dueño</label>
                   <input
                     type="text"
                     class="form-control"
@@ -78,55 +68,93 @@
                   />
                 </div>
 
-                <div class="mb-3">
-                  <label for="telefonoDuenho" class="form-label"
-                    >Telefono del dueño</label
-                  >
+                <div class="form-group">
+                  <label>Teléfono del Dueño</label>
                   <input
-                    type="tel"
+                    type="text"
                     class="form-control"
                     id="telefonoDuenho"
                     required
                   />
                 </div>
 
-                <div class="mb-3">
-                  <label for="tieneVacunas" class="form-label"
-                    >Tiene vacunas?</label
-                  >
-                  <select class="form-select" id="tieneVacunas" required>
-                    <option value="true">Si</option>
+                <div class="form-group">
+                  <label>¿Está vacunada?</label>
+                  <select class="form-control" id="tieneVacunas">
+                    <option value="true">Sí</option>
                     <option value="false">No</option>
                   </select>
                 </div>
 
-                <button
-                  type="submit"
-                  class="btn btn-success w-100"
-                  id="botonRegistrarMascota"
-                >
-                  <span>Registrar mascota</span>
+                <button type="submit" class="btn btn-success btn-block">
+                  Registrar Mascota
                 </button>
               </form>
             </div>
           </div>
         </div>
+
+        <!-- TABLA -->
         <div class="col-md-8">
-          <h4 class="text-center mb-3">Mascotas registradas</h4>
-          <table class="table table-striped" id="tablaMascotas">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Tipo</th>
-                <th>Edad</th>
-                <th>Dueño</th>
-                <th>Teléfono</th>
-                <th>Vacunas</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="tbody"></tbody>
-          </table>
+          <div class="card">
+            <div class="card-header text-center">
+              <h4>Mascotas Registradas</h4>
+            </div>
+
+            <!-- FILTROS -->
+            <div class="row p-3">
+              <div class="col-md-6">
+                <label>Filtrar por tipo</label>
+
+                <select class="form-control" id="filtroTipo">
+                  <option value="todos">Todos</option>
+                  <option value="perro">Perro</option>
+                  <option value="gato">Gato</option>
+                  <option value="ave">Ave</option>
+                  <option value="roedor">Roedor</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label>Filtrar por vacunación</label>
+
+                <select class="form-control" id="filtroVacunas">
+                  <option value="todos">Todos</option>
+                  <option value="true">Vacunadas</option>
+                  <option value="false">No vacunadas</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- ESTADÍSTICAS -->
+            <div class="card mx-3 mb-3">
+              <div class="card-body bg-light">
+                <h5>Estadísticas</h5>
+
+                <div id="estadisticas"></div>
+              </div>
+            </div>
+
+            <!-- TABLA -->
+            <div class="table-responsive px-3">
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Edad</th>
+                    <th>Dueño</th>
+                    <th>Teléfono</th>
+                    <th>Vacunada</th>
+                    <th>Edad Humana</th>
+                  </tr>
+                </thead>
+
+                <tbody id="tbody"></tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
